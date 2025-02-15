@@ -32,14 +32,12 @@ weather-app/
 
 ### Deployment
 
-
-
 1. Create the headless service:
 
 ```bash
 kubectl apply -f weather-app/auth/mysql/headless-service.yaml
-
 ```
+
 2. Apply the StatefulSet:
 
 ```bash
@@ -147,3 +145,12 @@ Key configurations:
 - Headless service (clusterIP: None)
 - Exposes port 3306
 - Selects pods with label `app: mysql`
+
+## Additional Components
+
+The weather application consists of several components beyond the MySQL database:
+- UI: A user interface component exposed via an Ingress
+- Auth: An authentication service
+- Weather: A weather data service
+
+Each of these components has its own Deployment and Service configurations.
